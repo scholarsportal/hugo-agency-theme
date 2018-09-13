@@ -46,9 +46,9 @@
                 </div>
                 {{ end }}
 
-                {{ with $contact.form.phone }}
+                {{ with $contact.form.organization }}
                 <div class="form-group">
-                  <input class="form-control" id="phone" required="required" type="number" name="phone" placeholder="{{ with .text }}{{ . | markdownify }}{{ end }}" data-validation-error-msg="{{ with .warning }}{{ . | markdownify }}{{ end }}"></textarea>
+                  <input class="form-control" id="organization" required="required" name="organization" placeholder="{{ with .text }}{{ . | markdownify }}{{ end }}" data-validation-error-msg="{{ with .warning }}{{ . | markdownify }}{{ end }}"></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
                 {{ end }}
@@ -79,7 +79,7 @@
                   {{ with $contact.error }}
                     {{ . | markdownify }}
                   {{ else }}
-                    Message could not be send. Please contact us at {{ (or $contact.email .Site.Params.email) }} instead.
+                    Message could not be sent. Please contact us at {{ (or $contact.email .Site.Params.email) }} instead.
                   {{ end }}
                 </div><br />
                 {{ with $contact.captcha }}
