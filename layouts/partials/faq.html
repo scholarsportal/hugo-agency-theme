@@ -1,0 +1,21 @@
+{{ "<!-- FAQ Section -->" | safeHTML }}
+<section id="faq">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">{{ with .Site.Params.faq.title }}{{ . | markdownify }}{{ end }}</h2>
+                <p class="section-subheading text-mutedwith ">{{ with .Site.Params.faq.subtitle }}{{ . | markdownify }}{{ end }}</p>
+            </div>
+        </div>
+        <div class="row">
+            {{ range .Site.Params.faq.questions }}
+            <div class="col-sm-8 col-sm-offset-2">
+                <p><a class="faq-question text" data-toggle="collapse" href="#{{ .id }}" aria-expanded="false" aria-controls="{{ .id }}">{{ .question | markdownify }}</a></p>
+                <div class="collapse" id="{{ .id }}">
+                    <div class="faq-answer">{{ .answer | markdownify }}</div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
