@@ -7,6 +7,10 @@
     {{ partial "nav.html" . }}
     {{ partial "hero.html" . }}
 
+    {{ if .Site.Params.headtext.enable }}
+      {{ partial "headtext.html" . }}
+    {{ end }}
+
     {{ if .Site.Params.services.enable }}
       {{ partial "services.html" . }}
     {{ end }}
